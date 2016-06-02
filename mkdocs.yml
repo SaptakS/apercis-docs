@@ -1,0 +1,7 @@
+site_name: Opinator Documentation
+pages:
+- Home: index.md
+- Installation: install.md
+- Deploying Server: deploy.md
+- Deploy Extension: extension.md
+theme: readthedocs
