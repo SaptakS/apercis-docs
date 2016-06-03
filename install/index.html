@@ -135,17 +135,29 @@ pip 1.5.2
 
 <p>Opinator supports Python 2.6, 2.7.</p>
 <h2 id="download-project">Download Project</h2>
-<p>Download the <a href="https://github.com/vivekanand1101/opinator2">Opinator Server project</a> from Github.</p>
+<p>Download the <a href="https://github.com/vivekanand1101/opinator-coreserver">Opinator Server project</a> from Github.</p>
 <p>You can also use git to clone the repo to your local system using:</p>
-<pre><code>$ git clone https://github.com/vivekanand1101/opinator2.git
-$ cd opinator2
+<pre><code>$ git clone https://github.com/vivekanand1101/opinator-coreserver.git
+$ cd opinator-coreserver
 </code></pre>
 
 <h2 id="install-dependencies">Install Dependencies</h2>
 <p>Run the following codes to install all dependencies:</p>
-<pre><code>$ ./install.sh
+<pre><code>$ sudo bash install.sh
 $ sudo pip install -r requirements.txt
-$ sudo python setup.py
+$ sudo python setup.py install
+</code></pre>
+
+<p>You need to download <a href="https://drive.google.com/open?id=0B61cpCJqkzqveFhsOTdVSVZwb1E">nltk_data</a> and <a href="https://drive.google.com/open?id=0B61cpCJqkzqvVi1RNFNYLWVXTG8">stanford corenlp package</a>:</p>
+<p>You can also download nltk_data as follow:</p>
+<pre><code>$ python
+&gt; import nltk
+&gt; nltk.download()
+</code></pre>
+
+<p>After the tar files have been downloaded, you can extract and copy the files to their specifiy directory using:</p>
+<pre><code>$ tar -xzvf ../Downloads/nltk_data.tar.gz -C ../
+$ tar -xzvf ../Downloads/stanford-corenlp-full-2015-04-20.tar.gz -C analyzer/
 </code></pre>
               
             </div>

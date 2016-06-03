@@ -74,6 +74,17 @@
         
             <ul>
             
+                <li class="toctree-l3"><a href="#database-setup">Database Setup</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#run-flask-server">Run Flask Server</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#run-corenlp-server">Run Corenlp Server</a></li>
+                
+                    <li><a class="toctree-l4" href="#changing-ip">Changing IP</a></li>
+                
+            
             </ul>
         
     </li>
@@ -118,7 +129,50 @@
           <div role="main">
             <div class="section">
               
-                
+                <p>To deploy the server, there are a few things we need to do. Firstly, we need to setup the database using postgresql, then run the different server modules.</p>
+<h2 id="database-setup">Database Setup</h2>
+<p>Firstly, we need to create a new user. To create a new user follow these steps:</p>
+<pre><code>$ sudo -i -u postgres
+$ psql
+postgres=# CREATE USER opinator WITH PASSWORD 'opinator';
+postgres=# CREATE DATABASE opinator;
+postgres=# GRANT ALL PRIVILEGES ON DATABASE opinator to opinator;
+postgres=# \q
+</code></pre>
+
+<p>After creating new user, login to psql shell with the new user as:
+<code>psql -d opinator -U opinator</code></p>
+<p>It might show an error <code>psql: FATAL:  Peer authentication failed for user "opinator"</code> . In that case please follow the guidelines given <a href="http://stackoverflow.com/questions/18664074/getting-error-peer-authentication-failed-for-user-postgres-when-trying-to-ge">here</a>.</p>
+<p>After these things are done, we need to create db. To do that:</p>
+<pre><code>$ export DATABASE_URL=postgresql://opinator:opinator@localhost:5432/opinator
+$ python createdb.py
+</code></pre>
+
+<p>This will setup the database required for the project.</p>
+<h2 id="run-flask-server">Run Flask Server</h2>
+<pre><code>$ python run.py
+</code></pre>
+
+<h2 id="run-corenlp-server">Run Corenlp Server</h2>
+<p>Go to a different terminal and do:</p>
+<pre><code>$ cd analyzer/
+$ export _JAVA_OPTIONS=&quot;-Xmx1024M&quot;
+$ python corenlp.py
+
+##Run Scrapyd Server
+Go to a different terminal and do:
+</code></pre>
+
+<p>$ cd scraper
+$ scrapyd</p>
+<pre><code>
+Then open another terminal and do:
+</code></pre>
+
+<p>$ scrapyd-deploy
+```</p>
+<h3 id="changing-ip">Changing IP</h3>
+<p>You might need to change the IP Address in certain places.</p>
               
             </div>
           </div>
