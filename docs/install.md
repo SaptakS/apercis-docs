@@ -28,3 +28,13 @@ $ ./install.sh
 $ sudo pip install -r requirements.txt
 $ sudo python setup.py
 ```
+
+You need to download [nltk_data](https://drive.google.com/open?id=0B61cpCJqkzqveFhsOTdVSVZwb1E) and [stanford corenlp package](https://drive.google.com/open?id=0B61cpCJqkzqvVi1RNFNYLWVXTG8):
+
+You can also download nltk_data as follow:
+```
+$ python
+> import nltk
+> nltk.download()
+```
+
