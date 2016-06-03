@@ -11,12 +11,12 @@ Opinator supports Python 2.6, 2.7.
 
 ## Download Project
 
-Download the [Opinator Server project](https://github.com/vivekanand1101/opinator2) from Github.
+Download the [Opinator Server project](https://github.com/vivekanand1101/opinator-coreserver) from Github.
 
 You can also use git to clone the repo to your local system using:
 
 ```
-$ git clone https://github.com/vivekanand1101/opinator2.git
+$ git clone https://github.com/vivekanand1101/opinator-coreserver.git
 $ cd opinator2
 ```
 
