@@ -1,0 +1,53 @@
+To deploy the server, there are a few things we need to do. Firstly, we need to setup the database using postgresql, then run the different server modules.
+
+##Database Setup
+
+Firstly, we need to create a new user. To create a new user follow these steps:
+
+```
+$ sudo -i -u postgres
+$ psql
+postgres=# CREATE USER opinator WITH PASSWORD 'opinator';
+postgres=# CREATE DATABASE opinator;
+postgres=# GRANT ALL PRIVILEGES ON DATABASE opinator to opinator;
+postgres=# \q
+```
+
+After creating new user, login to psql shell with the new user as:
+`psql -d opinator -U opinator`
+
+It might show an error `psql: FATAL:  Peer authentication failed for user "opinator"` . In that case please follow the guidelines given [here](http://stackoverflow.com/questions/18664074/getting-error-peer-authentication-failed-for-user-postgres-when-trying-to-ge).
+
+After these things are done, we need to create db. To do that:
+```
+$ export DATABASE_URL=postgresql://opinator:opinator@localhost:5432/opinator
+$ python createdb.py
+```
+
+This will setup the database required for the project.
+
+##Run Flask Server
+```
+$ python run.py
+```
+
+##Run Corenlp Server
+Go to a different terminal and do:
+```
+$ cd analyzer/
+$ export _JAVA_OPTIONS="-Xmx1024M"
+$ python corenlp.py
+
+##Run Scrapyd Server
+Go to a different terminal and do:
+```
+$ cd scraper
+$ scrapyd
+```
+
+Then open another terminal and do:
+```
+$ scrapyd-deploy
+```
+
+

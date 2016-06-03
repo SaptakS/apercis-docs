@@ -17,16 +17,16 @@ You can also use git to clone the repo to your local system using:
 
 ```
 $ git clone https://github.com/vivekanand1101/opinator-coreserver.git
-$ cd opinator2
+$ cd opinator-coreserver
 ```
 
 ## Install Dependencies
 
 Run the following codes to install all dependencies:
 ```
-$ ./install.sh
+$ sudo bash install.sh
 $ sudo pip install -r requirements.txt
-$ sudo python setup.py
+$ sudo python setup.py install
 ```
 
 You need to download [nltk_data](https://drive.google.com/open?id=0B61cpCJqkzqveFhsOTdVSVZwb1E) and [stanford corenlp package](https://drive.google.com/open?id=0B61cpCJqkzqvVi1RNFNYLWVXTG8):
